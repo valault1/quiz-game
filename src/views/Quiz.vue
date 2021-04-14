@@ -18,7 +18,6 @@
             v-if="questions.length" 
             :currentQuestion="questions[index]"
             :next="next"
-            :numQuestions="numQuestions"
           />
           </b-col>
       </b-row>
@@ -29,8 +28,6 @@
 
 <script>
 import QuestionBox from '../components/QuestionBox.vue';
-import Header from '../components/Header.vue';
-import route from '../router/index';
 
 
 let NUM_QUESTIONS = 10;

@@ -42,7 +42,6 @@ export default class QuestionBox extends Vue {
   @Prop() private msg!: string;
   @Prop() currentQuestion: Question;
   @Prop() next: void;
-  @Prop() numQuestions : number;
   selectedAnswer = null;
   shuffledAnswers = [];
   testclass = "test";
@@ -56,8 +55,9 @@ export default class QuestionBox extends Vue {
   @Watch("currentQuestion", {immediate: true})
   onPropertyChanged(value, oldValue) {
     if (value === null) {
-      console.log("routing to " + route);
+      
        var route = '/finished/' + this.numberCorrect
+       console.log("routing to " + route);
         router.push(route);
         
     }
@@ -99,7 +99,7 @@ export default class QuestionBox extends Vue {
     return answers;
   }
 
-  shuffleArray(array) {
+  shuffleArray(array : Array<any>) {
     for (var i = array.length - 1; i > 0; i--) {
         var j = Math.floor(Math.random() * (i + 1));
         var temp = array[i];
