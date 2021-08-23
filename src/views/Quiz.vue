@@ -46,19 +46,20 @@ export default {
       questions: [],
       index: 0,
       numQuestions: NUM_QUESTIONS,
-      url: "https://opentdb.com/api.php?amount=" + NUM_QUESTIONS + "&category="+ this.$route.params.category + "&type=multiple&difficulty=" + this.$route.params.difficulty
+      url: "https://opentdb.com/api.php?amount=" + NUM_QUESTIONS + "&category="+ this.$route.params.category + "&type=multiple&difficulty=" + this.$route.params.difficulty 
     }
   },
   methods: {
     next() {
       this.index +=1;
-      if (this.index >= this.numQuestions - 1 ) {
-        this.index = this.numQuestions - 1
+      if (this.index >= this.numQuestions ) {
+        this.index = this.numQuestions
         this.questions[this.index] = null;
       }
     }
   },
   mounted: function() {
+    console.log(this.url);
     fetch(this.url, {
       method: 'get'
     })
